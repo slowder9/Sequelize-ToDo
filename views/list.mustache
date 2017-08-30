@@ -1,0 +1,25 @@
+<h2>Sav's ToDo List</h2>
+
+<p><a href="/add">Add new todo</a></p>
+
+<h3>ToDo:</h3>
+<ul>
+	{{ #stuff }}
+	<li>
+		<p>{{ title }}</p>
+
+		{{ #completed }}
+		<form method="post" action="/complete/{{ id }}"> <!-- //id not underscore , underscore in mongo not sequelize-->
+			<input type="submit" value="Complete">
+		</form>
+		{{ /completed }}
+
+		{{ ^completed }}
+		<form method="post" action="/notcomplete/{{ id }}">
+			<input type="submit" value="Not Complete">
+		</form>
+		{{ /completed}}
+	</li>
+	{{ /stuff }}
+
+</ul>
